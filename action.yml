@@ -1,0 +1,13 @@
+name: "Castanets"
+description: "Test"
+author: "Team Castanets"
+inputs:
+  config-path:
+    description: "Castanets config file path"
+    default: "castanets.yml"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "--config-path"
+    - ${{ inputs.config-path }}

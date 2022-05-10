@@ -1,0 +1,12 @@
+name: Integration Test
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Test Run
+        id: testrun
+        uses: team-castanets/proof-of-concept@master
+        with:
+          config-path: castanets.yml
