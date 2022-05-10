@@ -74,3 +74,5 @@ steps:
     run: |
     echo "Outputs - ${{ steps.myaction.outputs.myOutput }}"
 ```
+ㅁㄹ
+  # Put an example of your mandatory arguments here
