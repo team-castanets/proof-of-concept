@@ -31,7 +31,7 @@ jobs:
 |------------------------------------------------------|-----------------------------------------------|
 | `myInput`  | An example mandatory input    |
 | `anotherInput` _(optional)_  | An example optional input    |
-
+ㅁㄴㅇㄹ
 ### Outputs
 
 | Output                                             | Description                                        |
