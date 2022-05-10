@@ -1,12 +1,6 @@
-import argparse
 import os
 import yaml
 import json
-
-# fmt: off
-parser = argparse.ArgumentParser()
-parser.add_argument("--config-path", type=str, required=True, help="Config 파일 위치")
-# fmt: on
 
 
 TEST_README = """
@@ -39,10 +33,11 @@ Requested reviewers:
 
 def main(args: argparse.Namespace):
     event = os.environ["GITHUB_EVENT"]
+    config_path = os.environ["INPUT_CONFIG_PATH"]
     workspace_path = os.environ["GITHUB_WORKSPACE"]
     job_summary_path = os.environ["GITHUB_STEP_SUMMARY"]
 
-    with open(os.path.join(workspace_path, args.input_path)) as f:
+    with open(os.path.join(workspace_path, config_path)) as f:
         config = yaml.load(f)
 
     if event == "pull_request":
@@ -53,5 +48,4 @@ def main(args: argparse.Namespace):
 
 
 if __name__ == "__main__":
-    args = parser.parse_args()
-    exit(main(args))
+    exit(main())
