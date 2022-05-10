@@ -7,6 +7,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Test Run
         id: testrun
-        uses: team-castanets/proof-of-concept@master
+        uses: team-castanets/proof-of-concept@main
         with:
           config-path: castanets.yml
