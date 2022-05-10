@@ -31,7 +31,7 @@ Requested reviewers:
 """.strip()
 
 
-def main(args: argparse.Namespace):
+def main():
     event = os.environ["GITHUB_EVENT"]
     config_path = os.environ["INPUT_CONFIG_PATH"]
     workspace_path = os.environ["GITHUB_WORKSPACE"]
