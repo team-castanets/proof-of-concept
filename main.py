@@ -32,7 +32,7 @@ Requested reviewers:
 
 
 def main():
-    event = os.environ["GITHUB_EVENT"]
+    event = os.environ["GITHUB_EVENT_NAME"]
     config_path = os.environ["INPUT_CONFIG_PATH"]
     workspace_path = os.environ["GITHUB_WORKSPACE"]
     job_summary_path = os.environ["GITHUB_STEP_SUMMARY"]
