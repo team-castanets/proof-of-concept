@@ -2,7 +2,7 @@ name: "Castanets"
 description: "Test"
 author: "Team Castanets"
 inputs:
-  config-path:
+  configPath:
     description: "Castanets config file path"
     default: "castanets.yml"
 runs:
