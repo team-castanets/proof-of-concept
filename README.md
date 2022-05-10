@@ -73,4 +73,4 @@ steps:
 - name: Check outputs
     run: |
     echo "Outputs - ${{ steps.myaction.outputs.myOutput }}"
-```
+```ㅁㄴㅇㄹ
