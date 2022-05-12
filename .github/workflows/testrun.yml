@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      actions: read|write
+      actions: write
     steps:
       - uses: actions/checkout@master
       - name: Test Run
