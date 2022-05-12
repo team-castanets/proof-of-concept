@@ -5,6 +5,8 @@ inputs:
   configPath:
     description: "Castanets config file path"
     default: "castanets.yml"
+  token:
+    description: "Github Token"
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -12,4 +14,4 @@ runs:
     - "--config-path"
     - ${{ inputs.configPath }}
   env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    GITHUB_TOKEN: ${{ token }}

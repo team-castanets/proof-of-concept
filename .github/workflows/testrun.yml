@@ -10,3 +10,4 @@ jobs:
         uses: team-castanets/proof-of-concept@main
         with:
           configPath: castanets.yml
+          token: ${{ secrets.GITHUB_TOKEN }}
