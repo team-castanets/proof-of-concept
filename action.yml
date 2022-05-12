@@ -14,4 +14,4 @@ runs:
     - "--config-path"
     - ${{ inputs.configPath }}
   env:
-    GITHUB_TOKEN: ${{ token }}
+    GITHUB_TOKEN: ${{ inputs.token }}
