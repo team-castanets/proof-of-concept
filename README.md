@@ -51,7 +51,7 @@ with:
   myInput: world
   anotherInput: optional
 ```
-
+ㅁㄴㅇㄹ
 ### Using outputs
 
 Show people how to use your outputs in another action.
