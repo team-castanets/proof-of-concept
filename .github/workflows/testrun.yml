@@ -9,4 +9,4 @@ jobs:
         id: testrun
         uses: team-castanets/proof-of-concept@main
         with:
-          config-path: castanets.yml
+          configPath: castanets.yml
