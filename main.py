@@ -44,7 +44,7 @@ def main(args):
     job_summary_path = os.environ["GITHUB_STEP_SUMMARY"]
 
     with open(os.path.join(workspace_path, args.config_path)) as f:
-        config = yaml.load(f)
+        config = yaml.load(f, Loader=yaml.FullLoader)
 
     if event == "pull_request":
         with open(job_summary_path, "w") as f:
