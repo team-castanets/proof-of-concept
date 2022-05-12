@@ -1,6 +1,13 @@
+import argparse
 import os
 import yaml
 import json
+
+
+# fmt: off
+parser = argparse.ArgumentParser()
+parser.add_argument("--config-path", type=str, required=True)
+# fmt: on
 
 
 TEST_README = """
@@ -31,13 +38,12 @@ Requested reviewers:
 """.strip()
 
 
-def main():
+def main(args):
     event = os.environ["GITHUB_EVENT_NAME"]
-    config_path = os.environ["INPUT_CONFIG_PATH"]
     workspace_path = os.environ["GITHUB_WORKSPACE"]
     job_summary_path = os.environ["GITHUB_STEP_SUMMARY"]
 
-    with open(os.path.join(workspace_path, config_path)) as f:
+    with open(os.path.join(workspace_path, args.config_path)) as f:
         config = yaml.load(f)
 
     if event == "pull_request":
@@ -48,4 +54,5 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    args = parser.parse_args()
+    exit(main(args))
