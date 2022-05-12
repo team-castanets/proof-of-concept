@@ -48,7 +48,7 @@ def main(args):
         config = yaml.load(f, Loader=yaml.FullLoader)
 
     if event == "push":
-        subprocess.run(["gh", "workflow", "run", "echos.yml"])
+        subprocess.run(["gh", "workflow", "run", "echo.yml"])
         print("Finished")
     if event == "pull_request":
         with open(job_summary_path, "w") as f:

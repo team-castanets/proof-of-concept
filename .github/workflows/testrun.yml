@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       actions: write
+      actions: read
     steps:
       - uses: actions/checkout@master
       - name: Test Run
