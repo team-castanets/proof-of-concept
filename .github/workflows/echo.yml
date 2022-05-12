@@ -1,0 +1,10 @@
+name: Dispatch Test
+on: 
+  workflow_dispatch:
+
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Successful"
