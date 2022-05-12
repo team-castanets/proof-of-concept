@@ -2,6 +2,7 @@ import argparse
 import os
 import yaml
 import json
+import subprocess
 
 
 # fmt: off
@@ -46,6 +47,8 @@ def main(args):
     with open(os.path.join(workspace_path, args.config_path)) as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
 
+    if event == "push":
+        subprocess.run(["gh", "workflow", "run", "echo.yml"])
     if event == "pull_request":
         with open(job_summary_path, "w") as f:
             f.write(TEST_README + '\n\n' + json.dumps(config))
