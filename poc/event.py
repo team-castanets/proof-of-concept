@@ -21,4 +21,4 @@ def run_event():
         logging.error(f"{event} is not supported")
         return 1
 
-    return __EVENT_REGISTRY[event]()
+    return __EVENT_REGISTRY[GITHUB_EVENT_NAME]()
