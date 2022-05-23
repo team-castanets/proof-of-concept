@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Test Run
         id: testrun
-        uses: team-castanets/proof-of-concept@main
+        uses: ./
         with:
           config-path: castanets.yml
           token: ${{ secrets.CUSTOM_TOKEN }}
