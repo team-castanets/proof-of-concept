@@ -11,5 +11,5 @@ jobs:
         id: testrun
         uses: team-castanets/proof-of-concept@main
         with:
-          configPath: castanets.yml
+          config-path: castanets.yml
           token: ${{ secrets.CUSTOM_TOKEN }}
