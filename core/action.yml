@@ -9,7 +9,7 @@ inputs:
     description: "Github Token"
 runs:
   using: "docker"
-  image: "Dockerfile"
+  image: "../Dockerfile"
   args:
     - "--config-path"
     - ${{ inputs.config-path }}
