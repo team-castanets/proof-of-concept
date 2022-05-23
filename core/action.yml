@@ -2,7 +2,7 @@ name: "Castanets"
 description: "Test"
 author: "Team Castanets"
 inputs:
-  configPath:
+  config-path:
     description: "Castanets config file path"
     default: "castanets.yml"
   token:
@@ -12,6 +12,6 @@ runs:
   image: "Dockerfile"
   args:
     - "--config-path"
-    - ${{ inputs.configPath }}
+    - ${{ inputs.config-path }}
   env:
     GITHUB_TOKEN: ${{ inputs.token }}
