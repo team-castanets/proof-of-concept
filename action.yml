@@ -17,6 +17,7 @@ runs:
         github_token: ${{ inputs.token }}
         name: castanets
         search_artifacts: true
+        check_artifacts: true
     - name: Castanets Core
       uses: ./core
       with:
