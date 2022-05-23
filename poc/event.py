@@ -1,7 +1,8 @@
 import os
 import logging
 from typing import Callable
-from constants import GITHUB_EVENT_NAME
+
+from .constants import GITHUB_EVENT_NAME
 
 __EVENT_REGISTRY = {}
 
