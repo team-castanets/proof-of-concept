@@ -1,13 +1,14 @@
-# Template from jacobtomlinson/python-container-action
 FROM python:3-slim AS builder
 ADD . /app
 WORKDIR /app
 
-RUN apt update && apt install -y curl
-RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-RUN apt update && apt install -y gh
+# We are installing a dependency here directly into our app source dir
+RUN pip install --target=/app requests
 
-RUN pip install PyYAML
-
-ENTRYPOINT ["python3", "main.py"]
+# A distroless container image with Python and some basics like SSL certificates
+# https://github.com/GoogleContainerTools/distroless
+FROM gcr.io/distroless/python3-debian10
+COPY --from=builder /app /app
+WORKDIR /app
+ENV PYTHONPATH /app
+CMD ["python3", "-m", "poc"]
