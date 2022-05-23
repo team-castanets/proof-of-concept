@@ -1,6 +1,7 @@
 import os
 import logging
 from typing import Callable
+from constants import GITHUB_EVENT_NAME
 
 __EVENT_REGISTRY = {}
 
@@ -15,9 +16,8 @@ def event(name: str):
 
 
 def run_event():
-    event = os.environ["GITHUB_EVENT_NAME"]
-    if event not in __EVENT_REGISTRY:
+    if GITHUB_EVENT_NAME not in __EVENT_REGISTRY:
         logging.error(f"{event} is not supported")
         return 1
 
-    return __EVENT_REGISTRY(event)()
+    return __EVENT_REGISTRY[event]()

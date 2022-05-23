@@ -18,5 +18,5 @@ def check_and_load(key: str) -> str:
         raise Exception(f"{key} is not set")
 
 
-#: Something
-SOMETHING = check_and_load("SOMETHING")
+#: Github Actions
+GITHUB_EVENT_NAME = check_and_load("GITHUB_EVENT_NAME")
