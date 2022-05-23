@@ -1,17 +1,29 @@
-name: "Castanets"
-description: "Test"
-author: "Team Castanets"
+name: "Castanets Core"
+description: "Core"
+author: "ScatterLab"
 inputs:
-  configPath:
-    description: "Castanets config file path"
+  config-path:
+    description: "Castanets Configuration File"
     default: "castanets.yml"
   token:
-    description: "Github Token"
+    description: "Github Personal Access Token"
 runs:
-  using: "docker"
-  image: "Dockerfile"
-  args:
-    - "--config-path"
-    - ${{ inputs.configPath }}
-  env:
-    GITHUB_TOKEN: ${{ inputs.token }}
+  using: "composite"
+  steps:
+    - name: Download Last Artifacts
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{ inputs.token }}
+        workflow: ${{ github.event.workflow_run.workflow_id }}
+        name: castanets
+        search_artifacts: true
+    - name: Castanets Core
+      uses: ./core
+      with:
+        token: ${{ inputs.token }}
+        config-path: ${{ inputs.config-path }}
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: castanets
+        path: artifacts

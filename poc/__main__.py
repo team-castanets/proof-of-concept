@@ -17,6 +17,11 @@ def push_event():
     print("push event")
 
 def main(args):
+
+    os.makedirs("artifacts", exist_ok=True)
+    with open("artifacts/test.json", "w") as f:
+        json.dump({"test": "test"}, f)
+
     run_event()
     return 0
 
