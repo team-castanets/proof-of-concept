@@ -11,6 +11,7 @@ runs:
   using: "composite"
   steps:
     - name: Download Last Artifacts
+      continue-on-error: true
       uses: dawidd6/action-download-artifact@v2
       with:
         workflow: ${{ github.workflow }}
