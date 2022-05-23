@@ -14,7 +14,7 @@ runs:
       continue-on-error: true
       uses: dawidd6/action-download-artifact@v2
       with:
-        workflow: ${{ github.workflow }}
+        workflow: testrun.yml
         github_token: ${{ inputs.token }}
         name: castanets
         search_artifacts: true
