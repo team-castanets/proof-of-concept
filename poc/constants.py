@@ -20,3 +20,4 @@ def check_and_load(key: str) -> str:
 
 #: Github Actions
 GITHUB_EVENT_NAME = check_and_load("GITHUB_EVENT_NAME")
+GITHUB_EVENT_PATH = check_and_load("GITHUB_EVENT_PATH")

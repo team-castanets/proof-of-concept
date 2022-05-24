@@ -4,6 +4,7 @@ import yaml
 import json
 
 from .event import event, run_event
+from .constants import GITHUB_EVENT_PATH
 
 
 # fmt: off
@@ -19,8 +20,10 @@ def push_event():
 def main(args):
 
     os.makedirs("artifacts", exist_ok=True)
-    with open("artifacts/test.json", "w") as f:
-        json.dump({"test": "test"}, f)
+    with open(GITHUB_EVENT_PATH, "r") as f:
+        event_data = json.load(f)
+
+    print(event_data)
 
     run_event()
     return 0
